@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarameL's Library</title>
+    <link rel="stylesheet" href="css/library.css">
+</head>
+<body>
+    <div class="library-container">
+        <!-- Header -->
+        <header class="library-header">
+            <h1>CarameL's Library</h1>
+            <p class="subtitle">世界是一本书，我们也是</p>
+        </header>
+
+        <!-- Bookshelf -->
+        <div class="bookshelf">
+            <!-- Book 1: Resume (Public) -->
+            <div class="book" data-module="resume" data-protected="false">
+                <div class="book-sparkle"></div>
+                <div class="book-spine" style="--book-color: #8B4513;">
+                    <span class="book-title">简历</span>
+                    <span class="book-author">Resume</span>
+                </div>
+            </div>
+
+            <!-- Book 2: Hobbies -->
+            <div class="book" data-module="hobbies" data-protected="true">
+                <div class="book-sparkle"></div>
+                <div class="book-spine" style="--book-color: #4169E1;">
+                    <span class="book-title">个人爱好</span>
+                    <span class="book-author">Hobbies</span>
+                </div>
+            </div>
+
+            <!-- Book 3: Social -->
+            <div class="book" data-module="social" data-protected="true">
+                <div class="book-sparkle"></div>
+                <div class="book-spine" style="--book-color: #32CD32;">
+                    <span class="book-title">社交</span>
+                    <span class="book-author">Social</span>
+                </div>
+            </div>
+
+            <!-- Book 4: Growth -->
+            <div class="book" data-module="growth" data-protected="true">
+                <div class="book-sparkle"></div>
+                <div class="book-spine" style="--book-color: #9370DB;">
+                    <span class="book-title">成长经历</span>
+                    <span class="book-author">Growth</span>
+                </div>
+            </div>
+
+            <!-- Book 5: Art & Aesthetics -->
+            <div class="book" data-module="art" data-protected="true">
+                <div class="book-sparkle"></div>
+                <div class="book-spine" style="--book-color: #FF69B4;">
+                    <span class="book-title">艺术与审美</span>
+                    <span class="book-author">Art</span>
+                </div>
+            </div>
+
+            <!-- Book 6: Personality -->
+            <div class="book" data-module="personality" data-protected="true">
+                <div class="book-sparkle"></div>
+                <div class="book-spine" style="--book-color: #FFA500;">
+                    <span class="book-title">性格与特质</span>
+                    <span class="book-author">Personality</span>
+                </div>
+            </div>
+
+            <!-- Book 7: Moments -->
+            <div class="book" data-module="moments" data-protected="true">
+                <div class="book-sparkle"></div>
+                <div class="book-spine" style="--book-color: #20B2AA;">
+                    <span class="book-title">Moments</span>
+                    <span class="book-author">Moments</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="library-footer">
+            <p>© 2024 CarameL · All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <!-- Password Modal -->
+    <div class="modal-overlay" id="password-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>🔐 密码验证</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message">支持简历模块公开访问，该模块需要密码验证哦~</p>
+                <input type="password" id="password-input" placeholder="请输入密码" autocomplete="off">
+                <p class="error-message" id="error-message"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" id="btn-cancel">取消</button>
+                <button class="btn btn-confirm" id="btn-confirm">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
