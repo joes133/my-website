@@ -82,9 +82,10 @@ const PASSWORDS = {
     hobbies: 'hobby123',      // 个人爱好密码
     social: 'social456',      // 社交密码
     growth: 'growth789',      // 成长经历密码
-    art: 'art2024',          // 艺术与审美密码
+    art: 'art2026',          // 艺术与审美密码
     personality: 'person321', // 性格与特质密码
-    moments: 'moment654'      // moments 密码
+    moments: 'moment654',     // moments 密码
+    admin: 'admin2026'        // 管理员密码
 };
 ```
 
@@ -170,7 +171,7 @@ const PASSWORDS = {
 
 ## 📄 License
 
-© 2024 CarameL · All Rights Reserved
+© 2026 CarameL · All Rights Reserved
 
 ---
 

@@ -78,11 +78,20 @@
                     <span class="book-author">Moments</span>
                 </div>
             </div>
+
+            <!-- Book 8: Admin (管理员模式) -->
+            <div class="book" data-module="admin" data-protected="true" data-admin="true">
+                <div class="book-sparkle"></div>
+                <div class="book-spine" style="--book-color: #FFD700;">
+                    <span class="book-title">管理员模式</span>
+                    <span class="book-author">Admin</span>
+                </div>
+            </div>
         </div>
 
         <!-- Footer -->
         <footer class="library-footer">
-            <p>© 2024 CarameL · All Rights Reserved</p>
+            <p>© 2026 CarameL · All Rights Reserved</p>
         </footer>
     </div>
 
@@ -105,5 +114,38 @@
     </div>
 
     <script src="js/auth.js"></script>
+    <script>
+    // Click sound for books
+    function playBookClickSound() {
+        try {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 600;
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.15);
+        } catch (e) {
+            console.log('Sound not available');
+        }
+    }
+    
+    // Add click sound to all books
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.book').forEach(book => {
+            book.addEventListener('click', () => {
+                playBookClickSound();
+            });
+        });
+    });
+    </script>
 </body>
 </html>

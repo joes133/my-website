@@ -5,9 +5,10 @@ const PASSWORDS = {
     hobbies: 'hobby123',      // 个人爱好密码
     social: 'social456',      // 社交密码
     growth: 'growth789',      // 成长经历密码
-    art: 'art2024',          // 艺术与审美密码
+    art: 'art2026',          // 艺术与审美密码
     personality: 'person321', // 性格与特质密码
-    moments: 'moment654'      // moments 密码
+    moments: 'moment654',     // moments 密码
+    admin: 'admin2026'        // 管理员密码
 };
 
 // Module paths
@@ -18,7 +19,8 @@ const MODULE_PATHS = {
     growth: 'growth/',
     art: 'art/',
     personality: 'personality/',
-    moments: 'moments/'
+    moments: 'moments/',
+    admin: 'admin/'
 };
 
 // Current module being accessed
@@ -66,9 +68,19 @@ function showPasswordModal(module) {
     const modal = document.getElementById('password-modal');
     const input = document.getElementById('password-input');
     const error = document.getElementById('error-message');
+    const message = document.querySelector('.modal-message');
 
     error.textContent = '';
     input.value = '';
+    
+    // Check if admin module
+    const book = document.querySelector(`.book[data-module="${module}"]`);
+    if (book && book.dataset.admin === 'true') {
+        message.textContent = '请输入管理员密码以获取 CarameL-website 后台程序';
+    } else {
+        message.textContent = '支持简历模块公开访问，该模块需要密码验证哦~';
+    }
+    
     modal.classList.add('visible');
 
     setTimeout(() => {

@@ -55,10 +55,8 @@ function init() {
 
     // Enter button click
     document.getElementById('enter-btn').addEventListener('click', () => {
-        // Play sound (if exists)
-        const audio = new Audio('assets/sounds/enter.mp3');
-        audio.volume = 0.3;
-        audio.play().catch(e => console.log('Audio play failed:', e));
+        // Play sound using Web Audio API (fallback if file doesn't exist)
+        playEnterSound();
         
         // Transition to library
         transitionToLibrary();
@@ -195,6 +193,79 @@ function transitionToLibrary() {
     setTimeout(() => {
         window.location.href = 'library.html';
     }, 1000);
+}
+
+// Sound effects using Web Audio API
+function playClickSound() {
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.value = 800;
+        oscillator.type = 'sine';
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.1);
+    } catch (e) {
+        console.log('Sound not available');
+    }
+}
+
+function playEnterSound() {
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Play a chord (C major: C4, E4, G4)
+        const frequencies = [261.63, 329.63, 392.00];
+        
+        frequencies.forEach((freq, index) => {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = freq;
+            oscillator.type = 'sine';
+            
+            const startTime = audioContext.currentTime + index * 0.05;
+            gainNode.gain.setValueAtTime(0, startTime);
+            gainNode.gain.linearRampToValueAtTime(0.2, startTime + 0.1);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + 1.5);
+            
+            oscillator.start(startTime);
+            oscillator.stop(startTime + 2);
+        });
+        
+        // Add higher harmonics
+        setTimeout(() => {
+            [523.25, 659.25].forEach(freq => {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = freq;
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 1);
+            });
+        }, 100);
+    } catch (e) {
+        console.log('Sound not available');
+    }
 }
 
 // Start
