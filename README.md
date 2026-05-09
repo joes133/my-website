@@ -20,12 +20,12 @@ my-website/
 │   ├── images/             # 图片资源
 │   └── sounds/             # 音效资源
 ├── resume/                 # 简历模块（公开）
-├── hobbies/                # 个人爱好（密码：hobby123）
-├── social/                 # 社交（密码：social456）
-├── growth/                 # 成长经历（密码：growth789）
-├── art/                    # 艺术与审美（密码：art2024）
-├── personality/            # 性格与特质（密码：person321）
-└── moments/                # Moments（密码：moment654）
+├── hobbies/                # 个人爱好
+├── social/                 # 社交
+├── growth/                 # 成长经历
+├── art/                    # 艺术与审美
+├── personality/            # 性格与特质
+└── moments/                # Moments
 ```
 
 ## 🚀 快速开始
