@@ -79,13 +79,13 @@ vercel --prod
 
 ```javascript
 const PASSWORDS = {
-    hobbies: 'hobby123',      // 个人爱好密码
-    social: 'social456',      // 社交密码
-    growth: 'growth789',      // 成长经历密码
-    art: 'art2026',          // 艺术与审美密码
-    personality: 'person321', // 性格与特质密码
-    moments: 'moment654',     // moments 密码
-    admin: 'admin2026'        // 管理员密码
+    hobbies: '***',      // 个人爱好密码
+    social: '***',      // 社交密码
+    growth: '***,      // 成长经历密码
+    art: '***',          // 艺术与审美密码
+    personality: '***', // 性格与特质密码
+    moments: '***',     // moments 密码
+    admin: '***'        // 管理员密码
 };
 ```
 
