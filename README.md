@@ -1,7 +1,5 @@
 # CarameL's Library - 个人网站
 
-> 世界是一本书，我们也是
-
 > https://caramel-personal-website.vercel.app/
 
 ## 📚 项目结构
